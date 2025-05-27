@@ -15,12 +15,13 @@ class Professor extends Aluno{
          * @param idade
          * @param curso
          * @param area
-         * @param formacoes ele recebe uma lista do tipo String com a formações do professor uma tapioca
+         * @param formacoes ele recebe uma lista do tipo String com a formações do professor
          */
 
         public Professor(String nome, LocalDate idade, String curso,String area,ArrayList<String> formacoes) {
                 super(nome, idade, curso);
                 this.area = area;
+                this.formacoes = formacoes != null ? formacoes : new ArrayList<>();                
             }
 
         public String darAulas(String aulas){
@@ -28,18 +29,19 @@ class Professor extends Aluno{
             return aulas;
         }
         
+        //*armazenamento das aulas dadas */
         public String relacaoAulas(String aulas){
             String ministrar = "";
             ministrar += aulasAssistidas;
             return ministrar;
         }
 
-        //nao sei se precisa botar o calculo de novo
+        /*calcular idade com base no nascimento */
         public int calcularIdade(){
         return Period.between(idade, LocalDate.now()).getYears();
 }
-    
-    public static void main(String[] args) {
+   }  
+    /*public static void main(String[] args) {
         Professor joao = new Professor("Wendel", LocalDate.of(2000, 12, 12), "informatica", "tecnologia", null);
         System.out.println(joao.nome);
         System.out.println(joao.calcularIdade());
@@ -47,9 +49,9 @@ class Professor extends Aluno{
         System.out.println(joao.area);
         joao.darAulas("java");
         System.out.println(joao.relacaoAula());
-
-    }
-    }
+    */
+   
+    
     
     
 
